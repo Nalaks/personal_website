@@ -3,13 +3,7 @@ import NavBar from './nav/nav'
 
 const siteTitle = 'Personal Website'
 
-export default function LayoutHome({
-	children,
-	home,
-	about,
-	contact,
-	projects
-}: LayoutProps) {
+const LayoutHome = ({ children }: LayoutProps) => {
 	return (
 		<>
 			<Head>
@@ -44,3 +38,5 @@ export default function LayoutHome({
 		</>
 	)
 }
+
+export default LayoutHome

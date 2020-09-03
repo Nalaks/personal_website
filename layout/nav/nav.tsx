@@ -18,7 +18,7 @@ const LinkText = styled.span`
 	}
 `
 
-export default function NavBar() {
+const NavBar = () => {
 	const router = useRouter()
 	return (
 		<>
@@ -65,3 +65,5 @@ export default function NavBar() {
 		</>
 	)
 }
+
+export default NavBar

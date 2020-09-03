@@ -13,9 +13,9 @@ import emailjs from 'emailjs-com'
 import styled from 'styled-components'
 
 const siteTitle = 'Contact'
-let emailService = 'test_mail'
-let emailTemplate = 'template_0COFXNid'
-let userID = 'user_WMibmk2Y5IM7CfvaHZkIP'
+let emailService = process.env.EMAIL_SERVICE
+let emailTemplate = process.env.EMAIL_TEMPLATE
+let userID = process.env.USER_ID
 
 const ColMiddle = styled(Col)`
 	background-color: #ff9a17 !important;

@@ -58,10 +58,14 @@ const ButtonContainer = styled.div`
 	align-self: flex-start;
 `
 
-export default function LayoutBlog({
-	children,
-	blog
-}: LayoutBlogProps) {
+const HeaderLink = styled.a`
+	color: #000;
+	:hover {
+		color: #ff9a17;
+	}
+`
+
+const LayoutBlog = ({ children, blog }: LayoutBlogProps) => {
 	return (
 		<>
 			<LayoutContainer className='container'>
@@ -89,7 +93,7 @@ export default function LayoutBlog({
 							</Link>
 							<HeaderTwo>
 								<Link href='/blog'>
-									<a>{name}</a>
+									<HeaderLink>{name}</HeaderLink>
 								</Link>
 							</HeaderTwo>
 						</>
@@ -124,8 +128,14 @@ export default function LayoutBlog({
 						max-width: 100%;
 						display: block;
 					}
+
+					a {
+						cursor: pointer;
+					}
 				`}</style>
 			</LayoutContainer>
 		</>
 	)
 }
+
+export default LayoutBlog

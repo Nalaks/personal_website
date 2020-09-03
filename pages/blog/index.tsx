@@ -40,6 +40,7 @@ const ListItem = styled.li`
 `
 
 const BlogTitle = styled.a`
+	/* color: #000; */
 	:hover {
 		color: #ff9a17;
 	}
