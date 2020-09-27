@@ -4,8 +4,11 @@ import Date from '../../lib/date'
 import LayoutBlog, { siteTitle } from '../../layout/layoutBlog'
 import { getSortedPostsData } from '../../lib/posts'
 import { GetStaticProps } from 'next'
+import React from 'react'
 
 const Blog = ({ allPostsData }: allPostsDataProps) => {
+	const changeBorderLIne = (id: string) =>
+		id !== 'ssg-ssr' ? 'border-t-2 border-gray-200' : ''
 	return (
 		<LayoutBlog blog>
 			<Head>
@@ -16,7 +19,10 @@ const Blog = ({ allPostsData }: allPostsDataProps) => {
 					<div className='-my-8'>
 						{allPostsData.map(({ id, date, title }) => (
 							<div
-								className='py-8 border-t-2 border-gray-200 flex flex-wrap md:flex-no-wrap'
+								className={
+									'py-8 flex flex-wrap md:flex-no-wrap ' +
+									changeBorderLIne(id)
+								}
 								key={id}>
 								<div className='md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col'>
 									<span className='tracking-widest font-medium title-font text-gray-900'>

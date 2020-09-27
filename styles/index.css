@@ -18,3 +18,13 @@ body {
 a {
 	cursor: pointer;
 }
+
+.blog-content > p {
+	margin-bottom: 1.5rem;
+}
+
+.blog-content > ul {
+	list-style-type: square;
+	margin-bottom: 1.5rem;
+	padding-left: 3rem;
+}

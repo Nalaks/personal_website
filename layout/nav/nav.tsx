@@ -1,15 +1,16 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const NavBar: React.FC = () => {
 	const router = useRouter()
 	const [toggle, setToggle] = useState('hidden')
-	const changeBgNav = router.pathname === '/' ? '' : 'bg-black'
+	const changeBgNav =
+		router.pathname === '/' ? 'w-screen fixed' : 'bg-black sticky'
 	return (
 		<nav
 			className={
-				'flex items-center justify-between flex-wrap p-6 fixed w-screen ' +
+				'flex items-center justify-between flex-wrap p-6 ' +
 				changeBgNav
 			}>
 			<div className='flex items-center flex-no-shrink text-white mr-6'>

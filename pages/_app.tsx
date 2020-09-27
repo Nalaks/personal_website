@@ -5,6 +5,8 @@ import '@fortawesome/fontawesome-free/js/brands'
 import React from 'react'
 import '../styles/index.css'
 
-export default function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
 	return <Component {...pageProps} />
 }
+
+export default MyApp

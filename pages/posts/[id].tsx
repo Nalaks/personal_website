@@ -18,7 +18,7 @@ const Post = ({ postData }: postDataProps) => {
 						<Date dateString={postData.date} />
 					</div>
 					<div
-						className='text-lg leading-7'
+						className='text-lg leading-7 blog-content'
 						dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
 					/>
 				</div>
