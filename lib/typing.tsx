@@ -1,20 +1,5 @@
 import React, { useEffect } from 'react'
 import Typed from 'typed.js'
-import styled from 'styled-components'
-
-const Type = styled.span`
-	font-size: 5.5rem;
-	:after {
-		content: '|';
-		display: inline;
-		-webkit-animation: blink 0.5s infinite;
-		-moz-animation: blink 0.5s infinite;
-		animation: blink 0.5s infinite;
-	}
-	@media only screen and (max-width: 600px) {
-		font-size: 2rem;
-	}
-`
 
 const Typing = () => {
 	const options = {
@@ -43,8 +28,24 @@ const Typing = () => {
 
 	return (
 		<>
-			<Type className='text-light type'></Type>
+			<span className='type'></span>
 			<style jsx>{`
+				.type {
+					font-size: 5.5rem;
+					color: white;
+				}
+				.type:after {
+					content: '|';
+					display: inline;
+					-webkit-animation: blink 0.5s infinite;
+					-moz-animation: blink 0.5s infinite;
+					animation: blink 0.5s infinite;
+				}
+				@media only screen and (max-width: 600px) {
+					.type {
+						font-size: 2rem;
+					}
+				}
 				@keyframes blink {
 					0% {
 						opacity: 1;

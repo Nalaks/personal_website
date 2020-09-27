@@ -1,44 +1,35 @@
 import Head from 'next/head'
 import LayoutHome from '../../layout/layoutHome'
 import React, { useState } from 'react'
-import {
-	Form,
-	Button,
-	Alert,
-	Row,
-	Col,
-	Container
-} from 'react-bootstrap'
 import emailjs from 'emailjs-com'
-import styled from 'styled-components'
 
 const siteTitle = 'Contact'
 let emailService = process.env.EMAIL_SERVICE
 let emailTemplate = process.env.EMAIL_TEMPLATE
 let userID = process.env.USER_ID
 
-const ColMiddle = styled(Col)`
-	background-color: #ff9a17 !important;
-`
-const HeadingSpan = styled.span`
-	color: #ff9a17 !important;
-`
+// const ColMiddle = styled(Col)`
+// 	background-color: #ff9a17 !important;
+// `
+// const HeadingSpan = styled.span`
+// 	color: #ff9a17 !important;
+// `
 
-const FormContainer = styled(Container)`
-	@media only screen and (max-width: 600px) {
-		width: 75vw !important;
-	}
-`
+// const FormContainer = styled(Container)`
+// 	@media only screen and (max-width: 600px) {
+// 		width: 75vw !important;
+// 	}
+// `
 
-const HeadingOne = styled.h1`
-	@media only screen and (max-width: 600px) {
-		font-size: 3.2rem !important;
-	}
-`
+// const HeadingOne = styled.h1`
+// 	@media only screen and (max-width: 600px) {
+// 		font-size: 3.2rem !important;
+// 	}
+// `
 
-const ContactContainer = styled.div`
-	margin-top: 5rem !important;
-`
+// const ContactContainer = styled.div`
+// 	margin-top: 5rem !important;
+// `
 
 const Contact = () => {
 	const [name, setName] = useState('')
@@ -88,7 +79,7 @@ const Contact = () => {
 				<title>{siteTitle}</title>
 			</Head>
 
-			<ContactContainer className='d-flex justify-content-center align-items-center flex-column'>
+			{/* <ContactContainer className='d-flex justify-content-center align-items-center flex-column'>
 				<div>
 					<HeadingOne className='display-3'>
 						Contact <HeadingSpan>Me</HeadingSpan>
@@ -194,7 +185,7 @@ const Contact = () => {
 						</Col>
 					</Row>
 				</Container>
-			</ContactContainer>
+			</ContactContainer> */}
 		</LayoutHome>
 	)
 }

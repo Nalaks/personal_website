@@ -1,68 +1,78 @@
-import { Navbar, Nav } from 'react-bootstrap'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import styled from 'styled-components'
+import { useState } from 'react'
 
-const Icon = styled.i`
-	font-size: 1.6rem;
-`
-const HeadingNav = styled.span`
-	font-size: 1.6rem;
-`
-const LinkText = styled.span`
-	font-size: 1.4rem;
-	color: #fff;
-	:hover {
-		color: #ff9a17;
-		cursor: pointer;
-	}
-`
-
-const NavBar = () => {
+const NavBar: React.FC = () => {
 	const router = useRouter()
+	const [toggle, setToggle] = useState('hidden')
+	const changeBgNav = router.pathname === '/' ? '' : 'bg-black'
 	return (
-		<>
-			<Navbar
-				expand='lg'
-				fixed='top'
-				className={router.pathname === '/' ? '' : 'bg-dark'}>
-				<Navbar.Brand>
-					<Icon className='fas fa-code ml-4 mr-3 text-white icon' />
-					<Link href='/'>
-						<HeadingNav className='text-white'>
-							Stefan Kalan
-						</HeadingNav>
-					</Link>
-				</Navbar.Brand>
-				<Navbar.Toggle
-					aria-controls='basic-navbar-nav'
-					className='bg-white'
-				/>
-				<Navbar.Collapse id='basic-navbar-nav' className='ml-4'>
-					<Nav className='mr-auto'></Nav>
-					<Nav>
-						<Nav.Link as={Link} href='/'>
-							<LinkText className='mr-4'>Home</LinkText>
-						</Nav.Link>
-						<Nav.Link as={Link} href='/blog'>
-							<LinkText className='mr-4'>Blog</LinkText>
-						</Nav.Link>
-						<Nav.Link as={Link} href='/about'>
-							<LinkText className='mr-4'>About</LinkText>
-						</Nav.Link>
-						<Nav.Link as={Link} href='/projects'>
-							<LinkText className='mr-4'>Projects</LinkText>
-						</Nav.Link>
-						<Nav.Link as={Link} href='/contact'>
-							<LinkText className='mr-4'>Contact</LinkText>
-						</Nav.Link>
-						<Nav.Link as={Link} href='/_CV.pdf'>
-							<LinkText className='mr-4'>Resume</LinkText>
-						</Nav.Link>
-					</Nav>
-				</Navbar.Collapse>
-			</Navbar>
-		</>
+		<nav
+			className={
+				'flex items-center justify-between flex-wrap p-6 fixed w-screen ' +
+				changeBgNav
+			}>
+			<div className='flex items-center flex-no-shrink text-white mr-6'>
+				<i className='fas fa-code text-gray icon mr-2' />
+				<span className='font-semibold text-xl tracking-tight'>
+					Stefan Kalan
+				</span>
+			</div>
+			<div className='block lg:hidden'>
+				<button
+					className='flex items-center px-3 py-2 border rounded border-black text-black hover:text-white hover:border-white'
+					onClick={() => setToggle(toggle === '' ? 'hidden' : '')}>
+					<svg
+						className='h-3 w-3'
+						viewBox='0 0 20 20'
+						xmlns='http://www.w3.org/2000/svg'>
+						<title>Menu</title>
+						<path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z' />
+					</svg>
+				</button>
+			</div>
+			<div
+				className={
+					'w-full block flex-grow lg:flex lg:items-center lg:w-auto ' +
+					toggle
+				}>
+				<div className='text-sm lg:flex-grow m-auto'></div>
+				<div>
+					<div className='text-sm lg:flex-grow'>
+						<Link href='/'>
+							<a className='block mt-4 lg:inline-block lg:mt-0 text-white  hover:text-white mr-8 text-lg'>
+								Home
+							</a>
+						</Link>
+						<Link href='/blog'>
+							<a className='block mt-4 lg:inline-block lg:mt-0 text-white  hover:text-white mr-8 text-lg'>
+								Blog
+							</a>
+						</Link>
+						<Link href='/about'>
+							<a className='block mt-4 lg:inline-block lg:mt-0 text-white  hover:text-white mr-8 text-lg'>
+								About
+							</a>
+						</Link>
+						<Link href='/projects'>
+							<a className='block mt-4 lg:inline-block lg:mt-0 text-white  hover:text-white mr-8 text-lg'>
+								Projects
+							</a>
+						</Link>
+						<Link href='/contact'>
+							<a className='block mt-4 lg:inline-block lg:mt-0 text-white  hover:text-white mr-8 text-lg'>
+								Contact
+							</a>
+						</Link>
+						<Link href='/_CV.pdf'>
+							<a className='block mt-4 lg:inline-block lg:mt-0 text-white  hover:text-white mr-8 text-lg'>
+								Resume
+							</a>
+						</Link>
+					</div>
+				</div>
+			</div>
+		</nav>
 	)
 }
 

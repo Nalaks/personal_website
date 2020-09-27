@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import React from 'react'
+import Footer from './footer/footer'
 import NavBar from './nav/nav'
 
 const siteTitle = 'Personal Website'
@@ -19,22 +21,7 @@ const LayoutHome = ({ children }: LayoutProps) => {
 			</Head>
 			<NavBar />
 			{children}
-			<style jsx global>{`
-				html,
-				body {
-					padding: 0;
-					margin: 0;
-					font-family: -apple-system, BlinkMacSystemFont, Segoe UI,
-						Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-						Helvetica Neue, sans-serif;
-					font-size: 16px;
-					height: 100%;
-				}
-
-				* {
-					box-sizing: border-box;
-				}
-			`}</style>
+			<Footer />
 		</>
 	)
 }

@@ -1,139 +1,97 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import NavBar from './nav/nav'
-import { Button } from 'react-bootstrap'
-import styled from 'styled-components'
+import React from 'react'
 
 const name = 'Stefan Kalan'
 export const siteTitle = 'Personal Blog'
 
-const BackButton = styled(Button)`
-	:hover {
-		background-color: #ff9a17 !important;
-	}
-`
-
-const LayoutContainer = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	margin-top: 7rem;
-`
-
-const Header = styled.header`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-`
-
-const HeaderOne = styled.h1`
-	font-size: 3.5rem;
-	line-height: 1.2;
-	font-weight: 600;
-	letter-spacing: -0.05rem;
-	margin: 1rem 0;
-`
-
-const HeaderTwo = styled.h2`
-	font-size: 2.8rem;
-	line-height: 1.4;
-	margin: 1rem 0;
-`
-
-const HeaderImage = styled.img`
-	border-radius: 50%;
-	width: 12rem;
-	height: 12rem;
-`
-
-const BlogImage = styled.img`
-	border-radius: 50%;
-	width: 10rem;
-	height: 10rem;
-`
-
-const ButtonContainer = styled.div`
-	margin: 2rem 0;
-	align-self: flex-start;
-`
-
-const HeaderLink = styled.a`
-	color: #000;
-	:hover {
-		color: #ff9a17;
-	}
-`
-
 const LayoutBlog = ({ children, blog }: LayoutBlogProps) => {
 	return (
 		<>
-			<LayoutContainer className='container'>
-				<Head>
-					<meta
-						name='description'
-						content='Personal Blog of Stefan Kalan'
-					/>
-					<meta name='og:title' content={siteTitle} />
-					<meta name='twitter:card' content='summary_large_image' />
-				</Head>
-				<NavBar />
-				<Header>
-					{blog ? (
-						<>
-							<HeaderImage src='/images/profile.jpg' alt={name} />
-							<HeaderOne>{name}</HeaderOne>
-						</>
-					) : (
-						<>
-							<Link href='/blog'>
-								<a>
-									<BlogImage src='/images/profile.jpg' alt={name} />
-								</a>
-							</Link>
-							<HeaderTwo>
-								<Link href='/blog'>
-									<HeaderLink>{name}</HeaderLink>
-								</Link>
-							</HeaderTwo>
-						</>
-					)}
-				</Header>
-				<main>{children}</main>
-				{!blog && (
-					<ButtonContainer>
-						<Link href='/blog'>
-							<BackButton variant='outline-dark'>
-								← Back to home
-							</BackButton>
-						</Link>
-					</ButtonContainer>
+			<Head>
+				<meta
+					name='description'
+					content='Personal Blog of Stefan Kalan'
+				/>
+				<meta name='og:title' content={siteTitle} />
+				<meta name='twitter:card' content='summary_large_image' />
+			</Head>
+			<NavBar />
+			<div>
+				{blog ? (
+					<>
+						<section className='text-gray-700 body-font'>
+							<div className='container mx-auto flex px-5 pt-32 items-center justify-center flex-col'>
+								<img
+									className='h-40 w-40 mb-4 object-cover object-center rounded-full'
+									alt='stefan kalan'
+									src={'/images/profile.jpg'}
+								/>
+								<div className='text-center lg:w-2/3 w-full'>
+									<h1 className='title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900'>
+										{name}
+									</h1>
+									<p className='mb-8 leading-relaxed'>
+										Meggings kinfolk echo park stumptown DIY, kale
+										chips beard jianbing tousled.
+									</p>
+									<div className='flex justify-center'>
+										<button className='inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg'>
+											Button
+										</button>
+										<button className='ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded text-lg'>
+											Button
+										</button>
+									</div>
+								</div>
+							</div>
+						</section>
+					</>
+				) : (
+					<>
+						<section className='text-gray-700 body-font'>
+							<div className='container mx-auto flex px-5 pt-32 items-center justify-center flex-col'>
+								<img
+									className='h-32 w-32 mb-4 object-cover object-center rounded-full'
+									alt='stefan kalan'
+									src={'/images/profile.jpg'}
+								/>
+								<div className='text-center lg:w-2/3 w-full'>
+									<Link href='/blog'>
+										<a className='title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 underline'>
+											{name}
+										</a>
+									</Link>
+								</div>
+							</div>
+						</section>
+					</>
 				)}
-				<style jsx global>{`
-					html,
-					body {
-						padding: 0;
-						margin: 0;
-						font-family: -apple-system, BlinkMacSystemFont, Segoe UI,
-							Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-							Helvetica Neue, sans-serif;
-						font-size: 16px;
-					}
-
-					* {
-						box-sizing: border-box;
-					}
-
-					img {
-						max-width: 100%;
-						display: block;
-					}
-
-					a {
-						cursor: pointer;
-					}
-				`}</style>
-			</LayoutContainer>
+			</div>
+			<main>{children}</main>
+			{!blog && (
+				<div className='flex items-center justify-center mb-4'>
+					<Link href='/blog'>
+						<a className='text-indigo-500 inline-flex items-center mt-4'>
+							<svg
+								className='w-4 h-4 mr-2'
+								xmlns='http://www.w3.org/2000/svg'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke='blue'>
+								<path
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									strokeWidth={2}
+									d='M10 19l-7-7m0 0l7-7m-7 7h18'
+								/>
+							</svg>
+							Back
+						</a>
+					</Link>
+				</div>
+			)}
 		</>
 	)
 }
