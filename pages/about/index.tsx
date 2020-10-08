@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import LayoutHome from '../../layout/layoutHome'
+import React from 'react'
 
 const siteTitle = 'About'
 
-const About = () => {
+const About: React.FC = () => {
 	return (
 		<LayoutHome>
 			<Head>
@@ -25,9 +26,9 @@ const About = () => {
 									<svg
 										fill='none'
 										stroke='currentColor'
-										stroke-linecap='round'
-										stroke-linejoin='round'
-										stroke-width='2'
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										strokeWidth='2'
 										className='w-10 h-10'
 										viewBox='0 0 24 24'>
 										<path d='M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2'></path>
@@ -65,9 +66,9 @@ const About = () => {
 									<svg
 										fill='none'
 										stroke='currentColor'
-										stroke-linecap='round'
-										stroke-linejoin='round'
-										stroke-width='2'
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										strokeWidth='2'
 										className='w-4 h-4 ml-2'
 										viewBox='0 0 24 24'>
 										<path d='M5 12h14M12 5l7 7-7 7'></path>

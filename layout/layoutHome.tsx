@@ -5,7 +5,7 @@ import NavBar from './nav/nav'
 
 const siteTitle = 'Personal Website'
 
-const LayoutHome = ({ children }: LayoutProps) => {
+const LayoutHome: React.FC = ({ children }: LayoutProps) => {
 	return (
 		<>
 			<Head>

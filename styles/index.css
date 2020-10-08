@@ -16,7 +16,7 @@ body {
 }
 
 a {
-	cursor: pointer;
+	cursor: pointer !important;
 }
 
 .blog-content > p {

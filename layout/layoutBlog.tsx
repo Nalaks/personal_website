@@ -6,7 +6,10 @@ import React from 'react'
 const name = 'Stefan Kalan'
 export const siteTitle = 'Personal Blog'
 
-const LayoutBlog = ({ children, blog }: LayoutBlogProps) => {
+const LayoutBlog: React.FC = ({
+	children,
+	blog
+}: LayoutBlogProps) => {
 	return (
 		<>
 			<Head>

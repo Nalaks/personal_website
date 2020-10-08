@@ -4,11 +4,11 @@ import React, { useState } from 'react'
 import emailjs from 'emailjs-com'
 
 const siteTitle = 'Contact'
-const emailService = ''
-const emailTemplate = ''
-const userID = ''
+const emailService = process.env.EMAIL_SERVICE
+const emailTemplate = process.env.EMAIL_TEMPLATE
+const userID = process.env.USER_ID
 
-const Contact = () => {
+const Contact: React.FC = () => {
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
 	const [subject, setSubject] = useState('')
@@ -24,6 +24,7 @@ const Contact = () => {
 
 	const submitForm = async (e) => {
 		e.preventDefault()
+		console.log(emailService, emailTemplate, userID)
 
 		const templateParams = {
 			from_name: name,
@@ -41,6 +42,7 @@ const Contact = () => {
 			)
 			res ? setSuccess(true) : null
 		} catch (err) {
+			console.log(err)
 			setSuccess(false)
 		}
 
